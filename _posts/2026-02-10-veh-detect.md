@@ -51,7 +51,7 @@ AddVectoredExceptionHandler(1, ExceptionHandler);//1이면 FirstHandler
 
 VectoredHandlerList의 구조는 아래와 같다. 
 
-어떠한 핸들러도 등록되있지 않은 경우, `LdrpVectorHandlerList + 0x8`의 값이 first_exception_handler에 저장되어 있음을 확인 가능했다. 이를 통해 등록되있지 않은 경를 수이 구분 가능하다.
+어떠한 핸들러도 등록되있지 않은 경우, `LdrpVectorHandlerList + 0x8`의 값이 first_exception_handler에 저장되어 있음을 확인 가능했다. 이를 통해 등록되있지 않은 경우를 수이 구분 가능하다.
 
 ```cpp
 typedef struct _VECTORED_HANDLER_ENTRY
