@@ -29,7 +29,7 @@ LONG CALLBACK ExceptionHandler(PEXCEPTION_POINTERS e);
 AddVectoredExceptionHandler(1, ExceptionHandler);//1이면 FirstHandler
 ```
 
-더 자세한 정보는 https://learn.microsoft.com/ko-kr/windows/win32/api/winnt/nc-winnt-pvectored_exception_handler 에서 확인 가능하다.
+더 자세한 정보는 [Microsoft](https://learn.microsoft.com/ko-kr/windows/win32/api/winnt/nc-winnt-pvectored_exception_handler) 에서 확인 가능하다.
 
 # RtlAddVectoredExceptionHandler 함수 분석
 
