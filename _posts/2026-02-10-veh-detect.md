@@ -6,10 +6,6 @@ tags: [reversing]
 author: strike0416
 ---
 
-# VectoredExceptionHandler 탐지
-
----
-
 # VectoredExceptionHandler란?
 
 ---
@@ -28,7 +24,7 @@ VEH는 디버거 구현, 안티 디버깅, 안티 치트, API 후킹 등을 위�
 
 일반적으로 VEH는 아래와 같은 코드를 통해 사용할 수 있다.
 
-```jsx
+```cpp
 LONG CALLBACK ExceptionHandler(PEXCEPTION_POINTERS e);
 AddVectoredExceptionHandler(1, ExceptionHandler);//1이면 FirstHandler
 ```
@@ -57,7 +53,7 @@ VectoredHandlerList의 구조는 아래와 같다.
 
 어떠한 핸들러도 등록되있지 않은 경우, `LdrpVectorHandlerList + 0x8`의 값이 first_exception_handler에 저장되어 있음을 확인 가능했다. 이를 통해 등록되있지 않은 경를 수이 구분 가능하다.
 
-```jsx
+```cpp
 typedef struct _VECTORED_HANDLER_ENTRY
 {
 	LIST_ENTRY entry;
@@ -81,7 +77,7 @@ typedef struct _VECTORED_HANDLER_LIST
 
 RtlDecodePointer 함수 분석을 통해 간단히 decode 방법을 찾을 수 있다.
 
-```jsx
+```cpp
 std::uint64_t decode_pointer(std::uint64_t ptr, std::uint32_t process_cookie)
 {
 	return _rotr64(ptr, 64 - (process_cookie & 0x3F)) ^ process_cookie;
