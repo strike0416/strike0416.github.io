@@ -1,5 +1,5 @@
 ---
-title: VectoredExceptionHandler 탐지
+title: Windows Vectored Exception Handler (VEH) 탐지 방법
 date: 2026-02-10 14:53:00 +0900
 categories: [Security, Reversing]
 tags: [reversing]
