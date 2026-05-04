@@ -43,7 +43,9 @@ AddVectoredExceptionHandler(1, ExceptionHandler);//1이면 FirstHandler
 
 ![](https://github.com/strike0416/Detect-VEH/raw/main/imgs/LdrpVectorHandlerList_ida.png)
 
-`83 E0 3F 48 8D 3D`  패턴 스캔을 통해 타 윈도우 버젼 (win10 22H2)에서도 찾을 수 있음을 확인했다.
+``48 8D 0D ? ? ? ? 48``~~`83 E0 3F 48 8D 3D`~~ 패턴 스캔을 통해 타 윈도우 버젼 (win10 22H2)에서도 찾을 수 있음을 확인했다.
+
+(Window 11 25H2 빌드에서 해당 패턴 스캔이 안됨을 확인, `lea rcx, [LdrpVectorHandlerList]`찾기로 변경)
 
 # Handler 구조체
 
